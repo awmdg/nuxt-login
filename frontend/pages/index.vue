@@ -1,0 +1,3 @@
+<template>
+  <PagePlaceholder />
+</template>
