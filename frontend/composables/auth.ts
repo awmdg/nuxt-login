@@ -69,7 +69,7 @@ export const useAuthStore = () => {
     } else {
       error.value = "An unexpected error occurred. Please try again.";
     }
-    console.error(err); // Log the unexpected error for debugging purposes
+    console.error(err);
   };
 
   return {

@@ -57,6 +57,14 @@
             Sign In
           </v-btn>
         </v-form>
+        <p>
+          Dont have an account?
+          <NuxtLink
+            :to="{ name: 'register' }"
+            class="text-paragraph font-weight-medium"
+            >Register.</NuxtLink
+          >
+        </p>
       </v-card>
     </v-col>
 
@@ -84,7 +92,7 @@ import { useAuthStore } from "@/store/auth";
 const display = useDisplay();
 const isMobile = computed(() => display.smAndDown.value);
 
-const { login, notification, error, clearNotification } = useAuthStore();
+const { login, error, clearNotification } = useAuthStore();
 const router = useRouter();
 
 const email = ref("");
