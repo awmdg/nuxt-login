@@ -17,37 +17,44 @@ jobs:
         node-version: [16.x, 18.x]
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+    - name: Checkout repository
+      uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: "npm"
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
 
-      - name: Install dependencies
-        run: npm install
+    - name: Install dependencies
+      run: npm install
 
-      - name: Compile TypeScript
-        run: npm run build
+    - name: Compile TypeScript
+      run: npm run build
 
-      - name: Run tests
-        run: npm test
+    - name: Run tests
+      run: npm test
 
-      - name: Run linter
-        run: npm run lint
+    - name: Run ESLint
+      run: npm run lint
 
-      - name: Upload test results
-        if: always()
-        uses: actions/upload-artifact@v3
-        with:
-          name: test-results
-          path: test-results.xml
+    - name: Upload ESLint results
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: eslint-results
+        path: eslint-results.xml
 
-      - name: Upload coverage
-        if: always()
-        uses: actions/upload-artifact@v3
-        with:
-          name: coverage
-          path: coverage
+    - name: Upload test results
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: test-results
+        path: test-results.xml
+
+    - name: Upload coverage
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: coverage
+        path: coverage

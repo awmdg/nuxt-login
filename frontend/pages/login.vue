@@ -29,7 +29,7 @@
           </div>
           <div class="field-wrapper mb-4 text-start">
             <label for="password" class="text-paragraph font-weight-medium"
-              >Password</label
+              >Passwordsss</label
             >
             <v-text-field
               v-model="password"
